@@ -1,8 +1,9 @@
 export default class DetailedError<TDetails> extends Error {
 
 	public details: TDetails;
+	public errorId: string | undefined;
 
-	constructor (message: string, details: TDetails) {
+	constructor (message: string, details: TDetails, errorId?: string) {
 
 		super(message);
 
@@ -10,6 +11,7 @@ export default class DetailedError<TDetails> extends Error {
 		Object.setPrototypeOf(this, DetailedError.prototype);
 
 		this.details = details;
+		this.errorId = errorId;
 
 	}
 
